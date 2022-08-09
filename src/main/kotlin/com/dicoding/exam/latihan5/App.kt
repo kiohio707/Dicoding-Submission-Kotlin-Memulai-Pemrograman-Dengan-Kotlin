@@ -14,6 +14,7 @@ package com.dicoding.exam.latihan5
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 /**
@@ -26,7 +27,12 @@ import kotlinx.coroutines.runBlocking
  *
  */
 suspend fun sum(valueA: Int, valueB: Int): Int {
-    return 0
+    runBlocking {
+        launch {
+            delay(3000)
+        }
+    }
+    return valueA + valueB
 }
 
 /**
@@ -39,7 +45,12 @@ suspend fun sum(valueA: Int, valueB: Int): Int {
  *
  */
 suspend fun multiple(valueA: Int, valueB: Int): Int {
-    return 0
+    runBlocking {
+        launch {
+            delay(2000)
+        }
+    }
+    return valueA * valueB
 }
 
 fun main() = runBlocking {
